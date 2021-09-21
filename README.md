@@ -17,8 +17,7 @@ In order to get started, you will need to download the `jetson_csi_cam`  reposit
 
 If you'd like to learn more about `gscam`, check out their [ROS wiki page](http://wiki.ros.org/gscam) or their [Github repository](https://github.com/ros-drivers/gscam).
 
-**Note:** This package was tested on a Nvidia Jetson Nano with ROS Melodic.
-
+**Note:** This package was tested on a Nvidia Jetson Nano with ROS Melodic and a IMX29-160 camera.
 ## Dependencies
 
 For the purpose of this guide, we will assume you already have:
