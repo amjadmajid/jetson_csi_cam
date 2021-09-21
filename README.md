@@ -2,7 +2,7 @@
 
 <p align="left"><a href="http://petermoran.org/csi-cameras-on-tx2/"><img src="https://img.shields.io/badge/CSI_Cameras_on_the_TX2_(The_Easy_Way)-Learn_more_at_my_blog-blue.svg?style=social"></a></p> 
 
-This ROS package makes it simple to use CSI cameras on the Nvidia Jetson TK1, TX1, or TX2 with ROS via gstreamer and the Nvidia multimedia API. This is done by properly configuring [`gscam`](http://wiki.ros.org/gscam) to work with the Nvidia hardware.
+This ROS package makes it simple to use CSI cameras on the Nvidia Jetson nano with ROS via gstreamer and the Nvidia multimedia API. This is done by properly configuring [`gscam`](http://wiki.ros.org/gscam) to work with the Nvidia hardware.
 
 **Features**
 
@@ -26,8 +26,7 @@ If you'd like to learn more about `gscam`, check out their [ROS wiki page](http:
 For the purpose of this guide, we will assume you already have:
 
 * Gstreamer-1.0 and the Nvidia multimedia API (typically installed by Jetpack)
-* ROS Kinetic
-  * Older versions of ROS may work, provided that a version of  `gscam` that supports gstreamer-1.0 is available for that ROS version, but this is untested.
+* ROS Melodic
 * `gscam` with gstreamer-1.0 support.
   * The following steps will show how to build `gscam` from source to support this, so don't worry about it yet.
 
@@ -39,7 +38,7 @@ Clone this repository into you `catkin_workspace`.
 
 ```
 cd ~/catkin_workspace/src
-git clone https://github.com/peter-moran/jetson_csi_cam.git 
+git clone https://github.com/amjadmajid/jetson_csi_cam.git 
 ```
 
 ## 2. Install `gscam` with gstreamer-1.0 support
@@ -97,7 +96,7 @@ roslaunch jetson_csi_cam jetson_csi_cam.launch
 
 > **Wait, where is the video?** This launch file only *publishes* the video to ROS, making it available for other programs to use. This is because we don't want to view the video every time we use the camera (eg the computer may be processing it first). Thus we use separate programs to view it. I'll discuss this in a later section, but if you can't wait, run `rqt_image_view` in a new terminal to see the video.
 
-You can confirm the video is running by entering `rostopic list` in the terminal. You should be able to see the  `/csi_cam/image_raw` topic (aka your video) along with a bunch of other topics with similar names -- unless you changed the `camera_name` argument from the default.
+You can confirm the video is running by entering `rostopic list` in the terminal. You should be able to see the  `/csi_cam_0/image_raw` topic (aka your video) along with a bunch of other topics with similar names -- unless you changed the `camera_name` argument from the default.
 
 ### Setting video options
 
