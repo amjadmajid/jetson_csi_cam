@@ -74,7 +74,7 @@ At this point everything should be ready to go.
 > ```
 > roslaunch jetson_csi_cam jetson_csi_cam.launch width:=<image width> height:=<image height> fps:=<desired framerate>
 > ```
-> If you have another camera on your Jetson TX2, to publish the other camera stream to the ROS topic `/csi_cam_1/image_raw`, use this command in the terminal:
+> If you have another camera on your Jetson Nano, to publish the other camera stream to the ROS topic `/csi_cam_1/image_raw`, use this command in the terminal:
 >
 > ```
 > roslaunch jetson_csi_cam jetson_csi_cam.launch sensor_id:=1 width:=<image width> height:=<image height> fps:=<desired framerate>
@@ -128,8 +128,6 @@ To check the true framerate of your video you can use the `rostopic hz` tool, wh
 ```
 rostopic hz /csi_cam/image_raw
 ```
-
-When the true framerate is below the framerate you asked for, it is either because the system cannot keep up or the camera does not have that setting. If you are using the Nvidia Jetson TX2, you can get higher resolution video at higher true FPS by switching to a [higher power mode](http://www.jetsonhacks.com/2017/03/25/nvpmodel-nvidia-jetson-tx2-development-kit/). It can also be good to dial back your requested FPS to be close or slightly above to your true FPS.
 
 ## Camera Calibration
 
